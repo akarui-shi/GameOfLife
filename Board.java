@@ -15,7 +15,7 @@ public class Board {
             throw new RuntimeException(e);
         }
 
-        previousConfig.add(toString(grid));
+        previousConfig.add(hash(grid));
     }
 
     private void initBoard() throws FileNotFoundException {
@@ -112,10 +112,10 @@ public class Board {
                 grid[h][w].updateState();
             }
         }
-        previousConfig.add(toString(grid));
+        previousConfig.add(hash(grid));
     }
 
-    private String toString(Cell[][] grid) {
+    private String hash(Cell[][] grid) {
         String str = "";
         for (int x = 0; x < config.getHeight(); x++) {
             for (int y = 0; y < config.getWidth(); y++) {
@@ -139,7 +139,7 @@ public class Board {
         return config;
     }
 
-    public boolean goNextGeneration() {
+    public boolean endOfTheGame() {
         String s = previousConfig.get(previousConfig.size() - 1);
         char[] chars = s.toCharArray();
         boolean flag = false;
@@ -150,9 +150,9 @@ public class Board {
         }
         for (int i = 0; i < previousConfig.size() - 1; i++) {
             if (s.equals(previousConfig.get(i)))
-                return false;
+                return true;
         }
-        return flag;
+        return !flag;
     }
 
 }

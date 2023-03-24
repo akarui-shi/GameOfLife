@@ -3,7 +3,6 @@ public class Cell {
     private boolean newState;
 
     public Cell() {
-
     }
 
     public Cell(boolean state) {

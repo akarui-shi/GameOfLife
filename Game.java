@@ -33,6 +33,7 @@ public class Game extends JFrame {
         System.out.println("Выберите режим: \n" +
                 ANSI_PURPLE + "play" + ANSI_RESET + " - автоматическое выполение шагов\n" +
                 ANSI_PURPLE + "step" + ANSI_RESET + " - выполнение шагов с помощью ввода \"+\" с клавиатуры");
+
         String a = in.nextLine();
 
         label.setText("THE GAME IS ON...");
@@ -47,7 +48,7 @@ public class Game extends JFrame {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                if (!panel.board.goNextGeneration()) break;
+                if (panel.board.endOfTheGame()) break;
             }
         } else if (Objects.equals(a, "step")) {
             System.out.println("Выбран режим \"step\"");
@@ -55,7 +56,7 @@ public class Game extends JFrame {
             while (Objects.equals(a, "+")) {
                 panel.updateBoard();
                 panel.repaint();
-                if (!panel.board.goNextGeneration()) break;
+                if (panel.board.endOfTheGame()) break;
                 a = in.nextLine();
             }
         }
