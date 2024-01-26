@@ -1,6 +1,6 @@
 # Game-Of-Life
 
-![Glider Gun](https://tenor.com/ru/view/glider-gun-game-of-life-conway-conway-game-of-life-gif-16861451)
+![Glider Gun](glider-gun-game-of-life.gif)
 
 ## Введение
 
